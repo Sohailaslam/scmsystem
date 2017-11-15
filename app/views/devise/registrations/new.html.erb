@@ -1,0 +1,56 @@
+<!--<div class="breadcrumb-wrap">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <h4>Sign in or Sign up</h4>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-6 hidden-xs text-right">-->
+<!--                        <ol class="breadcrumb">-->
+<!--                            <li><a href="/">Home</a></li>-->
+                            
+<!--                        </ol>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div><!--breadcrumbs-->
+
+
+ <div class="divide80"></div>
+        <div class="container">
+            <div class="row">  
+                <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+
+ <div class="login-form">
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+   <h3>Sign Up <span>Or <a href="/users/sign_in">Sign In</a></a></span></h3>
+              <form role="form">
+              <div class="form-group">
+                 <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, required: true, class: "form-control", placeholder: "Enter Email" %>
+               </div>
+               <div class="form-group">
+ <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", required: true, minlength:6, class: "form-control", placeholder: "Enter Password"  %>
+    
+    </div>
+     <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, required: true, autocomplete: "off", minlength:6, class: "form-control", placeholder: "Confirm Password" %>
+    
+      </div>
+      
+       <%= f.submit "Sign up", class: "btn btn-primary" %>
+       <!--
+       <a href="#" class="btn btn-fb-login"><i class="fa fa-facebook"></i> Sign Up With Facebook</a>
+       -->
+                        <!--<= render "users/shared/links" %>-->
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+<% end %>

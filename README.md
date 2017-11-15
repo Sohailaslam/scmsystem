@@ -1,4 +1,12 @@
+bundle install
+rails generate devise:install
+rails generate devise User
+rake db:migrate
 
+
+
+git remote remove origin
+git remote add origin new-URL
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
