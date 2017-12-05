@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
 
 .notice{
     padding: 1rem 3rem;
