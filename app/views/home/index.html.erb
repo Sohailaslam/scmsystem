@@ -1,2 +1,27 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<!--< if notice.present? %>-->
+<% if notice.present? %>
+    <% if notice == "Welcome! You have signed up successfully." or notice == "Signed in successfully." %>
+        <script>
+            swal({
+                title: 'Welcome!',
+                text: 'You have succesfully logged in',
+                type: 'success',
+                timer: 3000
+            });
+        </script>
+    <% end %>
+    
+    <% if notice == "Signed out successfully." %>
+        <script>
+            swal({
+                title: 'Success!',
+                text: 'You have succesfully logged out',
+                type: 'success',
+                timer: 3000
+            });
+        </script>
+    <% end %>
+<% end %>
+<!--< end %>-->

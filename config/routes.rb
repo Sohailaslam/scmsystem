@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  resources :payments
+  resources :variables
+  resources :students do
+    collection { post :import }
+  end
+  post 'payments/export'
+  resources :sections
+  resources :home
   root 'home#index'
-
+  get 'defaulters',to: 'home#defaulters',as: :defaulters
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

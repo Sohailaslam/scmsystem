@@ -1,0 +1,35 @@
+<!--<div class="container">-->
+<h1>All Students</h1>
+
+<%= link_to 'New Student', new_student_path,class: "btn btn-success pull-right" %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Admission number</th>
+      <th>Name</th>
+      <th>Tuition Fee</th>
+      <th>Class</th>
+      <th colspan="4">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.admission_number %></td>
+        <td><%= student.name %></td>
+        <td><%= student.tuition_fee %></td>
+        <td><%= student.section.name %></td>
+        <td><%= link_to 'Add Payment', new_payment_path(for: student) %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--</div>-->

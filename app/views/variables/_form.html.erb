@@ -1,0 +1,30 @@
+<%= bootstrap_form_for(@variable) do |f| %>
+  <% if @variable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@variable.errors.count, "error") %> prohibited this variable from being saved:</h2>
+
+      <ul>
+      <% @variable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.select :year,options_for_select((2017..2025)) %>
+  </div>
+  <div class="field">
+    <%= f.select :month,[["January"],["February"],["March"],["April"],["May"],["June"],["July"],
+    ["August"],["September"],["October"],["November"],["December"]] %>
+  </div>
+  <div class="field">
+    <%= f.select :date,options_for_select((1..31)) %>
+  </div>
+  <div class="field">
+    <%= f.select :payment_mode,[["Bank"],["Cash"]] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @payment.student.name %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @payment.section.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @payment.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @payment.month %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @payment.date %>
+</p>
+
+<p>
+  <strong>Payment mode:</strong>
+  <%= @payment.payment_mode %>
+</p>
+
+<p>
+  <strong>Tuition fee:</strong>
+  <%= @payment.tuition_fee %>
+</p>
+
+<p>
+  <strong>Fine:</strong>
+  <%= @payment.fine %>
+</p>
+
+<p>
+  <strong>Previous books:</strong>
+  <%= @payment.previous_books %>
+</p>
+
+<p>
+  <strong>Annual fund:</strong>
+  <%= @payment.annual_fund %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @payment.total %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

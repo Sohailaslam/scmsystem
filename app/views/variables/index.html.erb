@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Variables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Date</th>
+      <th>Payment mode</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @variables.each do |variable| %>
+      <tr>
+        <td><%= variable.year %></td>
+        <td><%= variable.month %></td>
+        <td><%= variable.date %></td>
+        <td><%= variable.payment_mode %></td>
+        <td><%= link_to 'Show', variable %></td>
+        <td><%= link_to 'Edit', edit_variable_path(variable) %></td>
+        <td><%= link_to 'Destroy', variable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Variable', new_variable_path %>

@@ -1,0 +1,22 @@
+<h3>Current values:</h3>
+<table class="table">
+    <tr>
+        <td><strong>Year:</strong></td>
+        <td><%= @variable.year %></td>
+    </tr>
+    <tr>
+        <td><strong>Month:</strong></td>
+        <td><%= @variable.month %></td>
+    </tr>
+    <tr>
+        <td><strong>Date:</strong></td>
+        <td><%= @variable.date %></td>
+    </tr>
+    <tr>
+        <td><strong>Payment Mode:</strong></td>
+        <td><%= @variable.payment_mode %></td>
+    </tr>
+</table>
+
+<%= link_to 'Update these values', edit_variable_path(@variable) %> |
+

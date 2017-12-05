@@ -4,15 +4,133 @@
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>-->
 
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <%= render 'layouts/header' %>
-  <br><br>
+      <% if user_signed_in? %>
+        <div class="container-fluid display-table">
+          <div class="row display-table-row">
+            <!-- side menu -->
+            <div class="col-md-2 col-sm-1  hidden-xs display-table-cell valign-top" id="side-menu">
+              <!--<h3>School Management System</h3>-->
+              <ul>
+                <li class="link settings-btn">
+                  <a href="/">
+                    <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                    <span class="hidden-sm hidden-xs">Dashboard</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <% variable = Variable.last %>
+                  <% if variable.present? %>
+                    <a href="/variables/<%= variable.id %>/edit">
+                  <% else %>
+                    <a href="/variables/new">
+                  <% end %>
+                      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                      <span class="hidden-sm hidden-xs">Set Variables</span>
+                    </a>
+                    
+                </li>
+                <li class="link">
+                  <a href="#collapse-post" data-toggle="collapse" aria-controls="collapse-post">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span class="hidden-sm hidden-xs">Students</span>
+                  </a>
+                  <ul class="collapse collapseable" id="collapse-post">
+                    <li>
+                      <%= link_to 'View Students', students_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Add Students', new_student_path %>
+                    </li>
+                  </ul>
+                </li>
+                <li class="link">
+                  <a href="/sections">
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                    <span class="hidden-sm hidden-xs">Classes</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="#collapse-payment" data-toggle="collapse" aria-controls="collapse-payment">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                    <span class="hidden-sm hidden-xs">Payments</span>
+                  </a>
+                  <ul class="collapse collapseable" id="collapse-payment">
+                    <li>
+                      <%= link_to 'View Payments', payments_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Add Payments', new_payment_path %>
+                    </li>
+                  </ul>
+                </li>
+                <li class="link">
+                  <a href="/defaulters">
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                    <span class="hidden-sm hidden-xs">Defaulters</span>
+                  </a>
+                </li>
+             </ul>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell valign-top">
+              <div class="row">
+                <header id="nav-header" class="clearfix">
+                  <div class="col-md-5">
+                    <nav class="navbar-default pull-left">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <% if notice.present? %>
+                        <li class="pull-left" id="notice">
+                          <%= notice %>
+                        </li>
+                      <% end %>
+                      <% if alert.present? %>
+                        <li class="pull-left" id="alert">
+                          <%= alert if alert.present? %>
+                        </li>
+                      <% end %>
+                    </nav>
+                  </div>
+                  <div class="col-md-7">
+                    
+                    <ul class="pull-right">
+                      
+                      <li id="welcome" class="hidden-xs">SMS Administrative Panel</li>
+                      <li class="fixed-width">
+                        <a href="#">
+                        </a>
+                      </li>
+                      <li>
+                          <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                          <a class="logout"><%= link_to "Log Out", destroy_user_session_path, :method => 'delete' %></a>
+                        
+                      </li>
+                    </ul>
+                  </div>
+                </header>
+              </div>
+              
+        </body>
+
+      <% end %>
+
+
+<!--<body>-->
+<!--  <= render 'layouts/header' %>-->
+<!--  <br><br>-->
 <%= yield %>
 
-</body>
+<!--</body>-->
 </html>

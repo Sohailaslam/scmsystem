@@ -1,0 +1,86 @@
+
+
+<div ng-app>
+
+<%= bootstrap_form_for(@payment) do |f| %>
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+      <% @payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= f.text_field :student_id,required: true,label: "Admission Number of Student *",value: (@student.admission_number if @student.present?) %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :year,value: @variable.year %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :month,value: @variable.month %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :date,value: @variable.date %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :payment_mode,value: @variable.payment_mode %>
+      </div>
+      <div class="field">
+        <%= f.number_field :tuition_fee,"ng-init": "fee= #{(@student.tuition_fee if @student.present?)}", "ng-model": "fee" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :library_fund, "ng-model": "library_fund" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :computer_fee, "ng-model": "computer_fee" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :science_lab_fee, "ng-model": "science_lab_fee",label: "Video/Music Fee" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :video_music_fee, "ng-model": "video_music_fee" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :sports_fund, "ng-model": "sports_fund" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      
+      <div class="field">
+        <%= f.number_field :workbook_charges, "ng-model": "workbook_charges" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :AC_charges, "ng-model": "AC_charges",label: "AC charges" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :generator_charges, "ng-model": "generator_charges" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :fine, "ng-model": "fine"  %>
+      </div>
+      <div class="field">
+        <%= f.number_field :previous_books, "ng-model": "previous" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :annual_fund, "ng-model": "annual_fund" %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :total, :value => '{{fine--fee--previous--annual_fund--library_fund--computer_fee--science_lab_fee--video_music_fee--sports_fund--workbook_charges--AC_charges--generator_charges}}' %>
+      </div>
+      <h2> Total: {{fine--fee--previous--annual_fund--library_fund--computer_fee--science_lab_fee--video_music_fee--sports_fund--workbook_charges--AC_charges--generator_charges}} </h2>
+      <div class="actions">
+        <%= f.submit  class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  
+  
+<% end %>
+
+</div>

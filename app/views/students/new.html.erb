@@ -1,0 +1,11 @@
+<h2>Import from excel</h2>
+<p>Format of excel file: Admission Number | Name | Tuition Fee | Class </p>
+<%= form_tag import_students_path, multipart: true do %>
+    <%= file_field_tag :file, required: true %>
+    <br>
+    <%= submit_tag "Import" %>
+<% end %>
+<h2>OR Add new Student Manually</h2>
+<%= render 'form' %>
+
+<%= link_to 'Back to all Students', students_path %>

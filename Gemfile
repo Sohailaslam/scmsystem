@@ -12,6 +12,9 @@ gem "cocoon"
 gem 'mysql2',          '~> 0.3.18', :platform => :ruby
 gem 'jdbc-mysql',      '= 5.1.35',  :platform => :jruby
 gem 'thinking-sphinx', '~> 3.2.0'
+
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git' # for export
+gem 'roo', "2.3.2" # for Import
 # Use Postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -26,7 +29,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'angularjs-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -56,3 +59,5 @@ group :development do
   gem 'spring'
 end
 
+
+gem 'ransack', github: 'activerecord-hackery/ransack'

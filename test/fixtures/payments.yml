@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 
+  section_id: 
+  year: 1
+  month: MyString
+  date: 1
+  payment_mode: MyString
+  tuition_fee: 1
+  fine: 1
+  previous_books: 1
+  annual_fund: 1
+  total: 1
+
+two:
+  student_id: 
+  section_id: 
+  year: 1
+  month: MyString
+  date: 1
+  payment_mode: MyString
+  tuition_fee: 1
+  fine: 1
+  previous_books: 1
+  annual_fund: 1
+  total: 1

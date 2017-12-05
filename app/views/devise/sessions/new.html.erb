@@ -1,67 +1,75 @@
-        <!--<div class="breadcrumb-wrap">-->
-        <!--    <div class="container">-->
-        <!--        <div class="row">-->
-        <!--            <div class="col-sm-6">-->
-        <!--                <h4>Sign in or Sign up</h4>-->
-        <!--            </div>-->
-        <!--            <div class="col-sm-6 hidden-xs text-right">-->
-        <!--                <ol class="breadcrumb">-->
-        <!--                    <li><a href="index.html">Home</a></li>-->
-                           
-        <!--                </ol>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--</div><!--breadcrumbs-->
-        
-        <div class="divide80"></div>
-        <div class="container">
-            <div class="row">  
-                <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                    <div class="login-form">
-                      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <h3>Sign In <span>Or <a href="/users/sign_up"> Sign Up </a></span></h3>
-                         <form role="form">
-                        <div class="form-group">
-                            <!--<label for="exampleInputEmail1">Email address</label-->
-                            <%= f.label :email %><br />
-                            <%= f.email_field :email, autofocus: true, required: true, class: "form-control", placeholder: "Enter Email" %>
-                            <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">-->
-                        </div>
-                        <div class="form-group">
-                            <!--<label for="exampleInputPassword1">Password</label>-->
-                            <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
-                              <%= f.label :password %><br />
-                              <%= f.password_field :password, autocomplete: "off", required: true, minlength:6, class: "form-control", placeholder: "Password" %>
-                        </div> 
-                          <div class="field">
-                        <!--<div class="checkbox">-->
-                              <% if devise_mapping.rememberable? -%>
-                                  <%= f.check_box :remember_me %>
-                                  <%= f.label :remember_me %>
-                                <% end -%>
-                          <!--</div>-->
-                        </div>
-                            <%= f.submit "Log in", class:  "btn btn-primary" %>
-                        <!--<button type="submit" class="btn btn-theme-bg">Login</button>-->
-                        <!--
-                        <a href="#" class="btn btn-fb-login"><i class="fa fa-facebook"></i> Login With Facebook</a>
-                        -->
-                        <%= render "devise/shared/links" %>
-                    </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="utf-8">
+	<title>DataBurj Sign In</title>
 
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+</head>
 
+<body background = "/big.jpg">
+	<center>
+	<div class="container">
+		<div class="top">
+			<h1 id="title"><span id="logo">School </h1> <h2 style="color:#eee;"> Management System<span></h2>
+		</div>
+		
+		<div class="login-box animated rubberBand">
+			<div class="box-header">
+				<h2><font color = "white">Log In</font></h2>
+			</div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <table>
+            	<center>
+                <tr>
+                    <label for="username">EMAIL</label>
+					<br/>
+                    <center><%= f.email_field :email, autofocus: true %></center>
+                </tr>
+                <tr>
+                	<label for="password">PASSWORD</label>
+					<center><%= f.password_field :password, autocomplete: "off" %></center>
+				</tr>
+				  <% if devise_mapping.rememberable? -%>
+				    <div class="field">
+				 
+				      <%= f.check_box :remember_me %>
+				         <label>Remember me</label>
+				    </div>
+				  <% end -%>
+                <center class = "vakhri"><%= f.submit "Log in" %></center>
+                <div class = 'small'><%= link_to "Forgot your password?", new_password_path(resource_name) %></div>
+                </center>
+            </table>
+                        <% if flash[:notice] %>
+    			<div><font color = "#1ab394"><%= flash[:notice] %></font></div>
+  			<% end %>
+             <% end %>
+            <% if flash[:notice] %>
+    			<div><font color = "#1ab394"><%= flash[:notice] %></font></div>
+  			<% end %>
+		</div>
+	</center>
+</body>
 
-  <div class="actions">
-   
-  </div>
-<% end %>
-
-
-
-
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated swing');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+</html>
