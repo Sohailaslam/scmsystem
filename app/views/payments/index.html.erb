@@ -1,10 +1,4 @@
-<%= search_form_for @search, url: payments_path do |f| %>
-  <div class="field">
-    <%= f.label :month_eq, "Month" %>
-    <%= f.select :month_eq, options_for_select(["January","February"]) %>
-  </div>
-  <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
+
 <h1>All Payment Records</h1>
 <%= link_to 'New Payment', new_payment_path,class: "btn btn-success pull-right" %>
 <br>
