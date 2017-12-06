@@ -9,6 +9,9 @@
             <div class = "divider pull-right">
               <%= link_to "Add new student", new_student_path, :class => "btn btn-sm btn-primary pull-right", :role => "button" %> 
             </div>
+            <div class = "divider pull-right">
+              <%= link_to 'Delete all', destroy_all_path, method: :put, :class => 'btn btn-sm btn-danger', :role => "button", :data => {confirm: 'Are you sure you want to delete all students?'} %> 
+            </div>
             
             <div class="col-sm-2 pull-right lil">
             <input type="text" class="form-control-special" ng-model="searchString" placeholder="Search Students"/>

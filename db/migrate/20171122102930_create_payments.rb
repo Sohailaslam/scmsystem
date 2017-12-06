@@ -7,18 +7,18 @@ class CreatePayments < ActiveRecord::Migration
       t.string :month
       t.integer :date
       t.string :payment_mode
-      t.integer :tuition_fee
-      t.integer :library_fund
-      t.integer :computer_fee
-      t.integer :science_lab_fee
-      t.integer :video_music_fee
-      t.integer :sports_fund
-      t.integer :workbook_charges
-      t.integer :AC_charges
-      t.integer :generator_charges
+      t.integer :tuition_fee,default: 0
+      t.integer :library_fund,default: 0
+      t.integer :computer_fee,default: 0
+      t.integer :science_lab_fee,default: 0
+      t.integer :video_music_fee,default: 0
+      t.integer :sports_fund,default: 0
+      t.integer :workbook_charges,default: 0
+      t.integer :AC_charges,default: 0
+      t.integer :generator_charges,default: 0
       
-      t.integer :fine
-      t.integer :previous_books
+      t.integer :fine,default: 0
+      t.integer :previous_books,default: 0
       t.integer :annual_fund
       t.integer :total
 

@@ -18,7 +18,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new
     @variable = Variable.last
     if !@variable.present?
-      redirect_to new_variable_path, notice: "Set These valuese first. Then You'll be able to add Payments."
+      redirect_to students_path, notice: "Set These valuese first. Then You'll be able to add Payments."
     end
     if params[:for].present?
       @student = Student.find(params[:for])

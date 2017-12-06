@@ -60,6 +60,13 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def destroy_all
+    Student.find_each(&:destroy)
+    respond_to do |format|
+      format.html { redirect_to students_url, notice: 'Students was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
   def import
     Student.import(params[:file])
     redirect_to students_path, notice: "Students imported"

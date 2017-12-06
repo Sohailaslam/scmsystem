@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   post 'payments/export'
   resources :sections
   resources :home
-  root 'home#index'
+  root 'home#defaulters'
   get 'defaulters',to: 'home#defaulters',as: :defaulters
+  put 'destroy_all',to: 'students#destroy_all',as: :destroy_all
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
