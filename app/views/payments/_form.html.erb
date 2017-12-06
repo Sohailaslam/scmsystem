@@ -32,43 +32,43 @@
         <%= f.hidden_field :payment_mode,value: @variable.payment_mode %>
       </div>
       <div class="field">
-        <%= f.number_field :tuition_fee,"ng-init": "fee= #{(@student.tuition_fee if @student.present?)}", "ng-model": "fee" %>
+        <%= f.number_field :tuition_fee,"ng-init": "fee= #{(@student.tuition_fee if @student.present?) || 0}", "ng-model": "fee" %>
       </div>
       <div class="field">
-        <%= f.number_field :library_fund, "ng-model": "library_fund" %>
+        <%= f.number_field :library_fund,"ng-init": "library_fund= 0", "ng-model": "library_fund" %>
       </div>
       <div class="field">
-        <%= f.number_field :computer_fee, "ng-model": "computer_fee" %>
+        <%= f.number_field :computer_fee,"ng-init": "computer_fee= 0", "ng-model": "computer_fee" %>
       </div>
       <div class="field">
-        <%= f.number_field :science_lab_fee, "ng-model": "science_lab_fee",label: "Video/Music Fee" %>
+        <%= f.number_field :science_lab_fee,"ng-init": "science_lab_fee= 0", "ng-model": "science_lab_fee",label: "Video/Music Fee" %>
       </div>
       <div class="field">
-        <%= f.number_field :video_music_fee, "ng-model": "video_music_fee" %>
+        <%= f.number_field :video_music_fee,"ng-init": "video_music_fee= 0", "ng-model": "video_music_fee" %>
       </div>
       <div class="field">
-        <%= f.number_field :sports_fund, "ng-model": "sports_fund" %>
+        <%= f.number_field :sports_fund,"ng-init": "sports_fund= 0", "ng-model": "sports_fund" %>
       </div>
     </div>
     <div class="col-md-6">
       
       <div class="field">
-        <%= f.number_field :workbook_charges, "ng-model": "workbook_charges" %>
+        <%= f.number_field :workbook_charges,"ng-init": "workbook_charges= 0", "ng-model": "workbook_charges" %>
       </div>
       <div class="field">
-        <%= f.number_field :AC_charges, "ng-model": "AC_charges",label: "AC charges" %>
+        <%= f.number_field :AC_charges,"ng-init": "AC_charges= 0", "ng-model": "AC_charges",label: "AC charges" %>
       </div>
       <div class="field">
-        <%= f.number_field :generator_charges, "ng-model": "generator_charges" %>
+        <%= f.number_field :generator_charges,"ng-init": "generator_charges= 0", "ng-model": "generator_charges" %>
       </div>
       <div class="field">
-        <%= f.number_field :fine, "ng-model": "fine"  %>
+        <%= f.number_field :fine,"ng-init": "fine= 0", "ng-model": "fine"  %>
       </div>
       <div class="field">
-        <%= f.number_field :previous_books, "ng-model": "previous" %>
+        <%= f.number_field :previous_books,"ng-init": "previous_books= 0", "ng-model": "previous" %>
       </div>
       <div class="field">
-        <%= f.number_field :annual_fund, "ng-model": "annual_fund" %>
+        <%= f.number_field :annual_fund,"ng-init": "annual_fund= 0", "ng-model": "annual_fund" %>
       </div>
       <div class="field">
         <%= f.hidden_field :total, :value => '{{fine--fee--previous--annual_fund--library_fund--computer_fee--science_lab_fee--video_music_fee--sports_fund--workbook_charges--AC_charges--generator_charges}}' %>
